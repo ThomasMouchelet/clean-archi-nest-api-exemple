@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from '../user.service'; // Assurez-vous du bon chemin
+import { UserService } from '../user.service';
 import { AuthService } from './auth.service';
 import { HashService } from './hash.service';
 import { CreateUserDto } from '../../../application/dtos/user/create-user.dto';
@@ -11,8 +11,8 @@ import { User } from '../../../domain/models/user.model';
 describe('AuthService', () => {
   let authService: AuthService;
   let hashService: HashService;
-  let userService: UserService; // Déclarer le UserService mock
-  let jwtService: JwtService; // Déclarer JwtService mock
+  let userService: UserService;
+  let jwtService: JwtService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -24,9 +24,9 @@ describe('AuthService', () => {
           useValue: {
             sign: jest.fn().mockReturnValue('mockedToken'),
           },
-        }, // Moquer JwtService
+        },
         {
-          provide: UserService, // Moquer le UserService
+          provide: UserService,
           useValue: {
             findOne: jest.fn(),
             create: jest.fn(),
@@ -37,8 +37,8 @@ describe('AuthService', () => {
 
     authService = module.get<AuthService>(AuthService);
     hashService = module.get<HashService>(HashService);
-    userService = module.get<UserService>(UserService); // Obtenir le UserService mock
-    jwtService = module.get<JwtService>(JwtService); // Obtenir le JwtService mock
+    userService = module.get<UserService>(UserService);
+    jwtService = module.get<JwtService>(JwtService);
   });
 
   describe('signUp', () => {
