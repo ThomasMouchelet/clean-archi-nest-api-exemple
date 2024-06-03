@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from '../user.service';
+import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 import { HashService } from './hash.service';
 import { CreateUserDto } from '../../../application/dtos/user/create-user.dto';

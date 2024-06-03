@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { PostRepository } from '../../domain/repositories/post.repository';
-import { Post } from '../../domain/models/post.model';
-import { POST_REPOSITORY_TOKEN } from '../../domain/repositories/tokens';
-import { User } from '../../domain/models/user.model';
-import { CreatePostDto } from '../dtos/post/create-post.dto';
+import { PostRepository } from '../../../domain/repositories/post.repository';
+import { Post } from '../../../domain/models/post.model';
+import { POST_REPOSITORY_TOKEN } from '../../../domain/repositories/tokens';
+import { User } from '../../../domain/models/user.model';
+import { CreatePostDto } from '../../dtos/post/create-post.dto';
 
 @Injectable()
 export class PostService {

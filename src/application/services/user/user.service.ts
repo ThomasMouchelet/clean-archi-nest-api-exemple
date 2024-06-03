@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UserRepository } from '../../domain/repositories/user.repository';
-import { User } from '../../domain/models/user.model';
-import { USER_REPOSITORY_TOKEN } from '../../domain/repositories/tokens';
+import { UserRepository } from '../../../domain/repositories/user.repository';
+import { User } from '../../../domain/models/user.model';
+import { USER_REPOSITORY_TOKEN } from '../../../domain/repositories/tokens';
 
 @Injectable()
 export class UserService {

@@ -1,8 +1,8 @@
-import { Post } from "../../domain/models/post.model";
+import { Post } from "../../../domain/models/post.model";
 import { PostService } from "./post.service";
-import { User } from "../../domain/models/user.model";
+import { User } from "../../../domain/models/user.model";
 import { Test, TestingModule } from "@nestjs/testing";
-import { POST_REPOSITORY_TOKEN } from "../../domain/repositories/tokens";
+import { POST_REPOSITORY_TOKEN } from "../../../domain/repositories/tokens";
 
 describe('PostService', () => {
     let service: PostService;
