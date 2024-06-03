@@ -9,4 +9,15 @@ export class Post {
     public updatedAt: Date,
     public user: User
   ) {}
+
+  static create(postDto: { title: string; content: string; user: User }): Post {
+    return new Post(
+      null, // id will be set by the ORM
+      postDto.title,
+      postDto.content,
+      new Date(), // createdAt will be set by the ORM or database
+      new Date(), // updatedAt will be set by the ORM or database
+      postDto.user
+    );
+  }
 }

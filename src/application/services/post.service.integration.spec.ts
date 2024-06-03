@@ -55,7 +55,7 @@ describe('PostService (Integration)', () => {
 
       const post = new Post(1, 'title', 'content', new Date(), new Date(), savedUser);
 
-      const createdPost = await service.create(post);
+      const createdPost = await service.create(post, savedUser);
       const foundPost = await service.findOne({id: createdPost.id});
       
       expect(foundPost).toBeDefined();

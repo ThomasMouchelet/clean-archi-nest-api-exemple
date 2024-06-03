@@ -6,6 +6,7 @@ import { POST_REPOSITORY_TOKEN } from "../../domain/repositories/tokens";
 
 describe('PostService', () => {
     let service: PostService;
+    
 
     const mockPostRepository = {
         findAll: jest.fn(),
@@ -41,10 +42,13 @@ describe('PostService', () => {
     describe('create', () => {
         it('should create a new post', async () => {
             const user = new User(1, 'test', 'test');
-            const post = new Post(1, 'test', 'test',new Date(),new Date(), user);
+            const post = {
+                title: 'test',
+                content: 'test'
+            }
             mockPostRepository.create.mockReturnValue(post);
 
-            expect(await service.create(post)).toEqual(post);
+            expect(await service.create(post, user)).toEqual(post);
         })
     })
     describe('findOne', () => {

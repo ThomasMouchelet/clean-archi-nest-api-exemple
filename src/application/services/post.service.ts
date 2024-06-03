@@ -2,7 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { PostRepository } from '../../domain/repositories/post.repository';
 import { Post } from '../../domain/models/post.model';
 import { POST_REPOSITORY_TOKEN } from '../../domain/repositories/tokens';
-import { User } from 'src/domain/models/user.model';
+import { User } from '../../domain/models/user.model';
+import { CreatePostDto } from '../dtos/post/create-post.dto';
 
 @Injectable()
 export class PostService {
@@ -19,11 +20,8 @@ export class PostService {
     return this.postRepository.findOne(options);
   }
 
-  async create(post: Post, user: User): Promise<Post> {
-    const postCreate = {
-      ...post,
-      user
-    }
-    return this.postRepository.create(postCreate);
+  async create(createPostDto: CreatePostDto, user: User): Promise<Post> {
+    const post = Post.create({ ...createPostDto, user });
+    return this.postRepository.create(post);
   }
 }

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AuthService } from '../../application/services/auth.service';
+
 import { UserService } from '../../application/services/user.service';
 import { JwtModule } from '@nestjs/jwt';
 import { USER_REPOSITORY_TOKEN } from '../../domain/repositories/tokens';
@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserOrmEntity } from '../entities/user.orm-entity';
 import { JwtStrategy } from '../common/strategies/jwt.strategy';
 import { ConfigModule } from '@nestjs/config';
+import { AuthService } from '../../application/services/auth/auth.service';
+import { HashService } from '../../application/services/auth/hash.service';
 
 @Module({
   imports: [
@@ -20,6 +22,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
   ],
   providers: [
+    HashService,
     AuthService,
     UserService,
     JwtStrategy,
