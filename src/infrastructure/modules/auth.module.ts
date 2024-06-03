@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-
-import { UserService } from '../../application/services/user.service';
 import { JwtModule } from '@nestjs/jwt';
 import { USER_REPOSITORY_TOKEN } from '../../domain/repositories/tokens';
 import { UserRepositoryImpl } from '../repositories/user.repository.impl';
@@ -11,6 +9,7 @@ import { JwtStrategy } from '../common/strategies/jwt.strategy';
 import { ConfigModule } from '@nestjs/config';
 import { AuthService } from '../../application/services/auth/auth.service';
 import { HashService } from '../../application/services/auth/hash.service';
+import { UserService } from '../../application/services/user/user.service';
 
 @Module({
   imports: [
